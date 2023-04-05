@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', ['contacts' => auth()->user()->contact()->take(3)->get()]);
     }
 }

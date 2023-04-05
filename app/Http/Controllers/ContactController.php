@@ -20,7 +20,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('contacts.create');
     }
 
     /**
@@ -28,7 +28,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->toArray();
+
+        $data['user_id'] = auth()->id();
+        $data['picture'] = str_replace('public', '', $request->file('picture')->store('public'));
+
+        auth()->user()->contact()->create($data);
+        return redirect('home');
     }
 
     /**
