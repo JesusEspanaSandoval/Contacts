@@ -5,7 +5,7 @@
     <h2 class="text-center">Your last contacts</h2>
     <div class="d-flex flex-wrap justify-content-center">
       @foreach ($contacts as $contact)
-        <div class="card mx-2 my-2" style="min-width: 20rem; max-width: 30rem">
+        <div class="card mx-2 my-2" style="width: 15rem">
           <div class="card-header">{{ $contact->name }}</div>
           <div class="d-flex flex-column justify-content-center card-body">
             <div class="d-flex justify-content-center align-items-center mx-auto mb-2"

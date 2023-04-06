@@ -16,7 +16,7 @@
 
                 <div class="col-md-6">
                   <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                   @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
 
                 <div class="col-md-6">
                   <input id="phone_number" type="tel" class="form-control @error('phone_number') is-invalid @enderror"
-                    name="phone_number" required>
+                    name="phone_number">
 
                   @error('phone_number')
                     <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
 
                 <div class="col-md-6">
                   <input id="picture" type="file" class="form-control @error('picture') is-invalid @enderror"
-                    name="picture" required>
+                    name="picture">
 
                   @error('picture')
                     <span class="invalid-feedback" role="alert">

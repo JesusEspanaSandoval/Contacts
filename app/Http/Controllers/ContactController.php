@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -26,12 +27,14 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateContactRequest $request)
     {
-        $data = $request->toArray();
+        $data = $request->validated();
 
         $data['user_id'] = auth()->id();
-        $data['picture'] = str_replace('public', '', $request->file('picture')->store('public'));
+        if ($request->hasFile('picture')) {
+            $data['picture'] = str_replace('public', '', $request->file('picture')->store('public'));
+        }
 
         auth()->user()->contact()->create($data);
         return redirect('home');
