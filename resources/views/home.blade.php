@@ -13,9 +13,12 @@
               <img src="/storage{{ $contact->picture }}" style="height: 100%" />
             </div>
             <h3 class="text-center">{{ $contact->phone_number }}</h3>
-            <form class="ms-auto me-auto">
+            <form class="ms-auto me-auto" method="post" action="{{ route('contacts.destroy', $contact->id) }}">
+              @csrf
+              @method('delete')
+
               <a class="btn btn-primary me-2">Edit</a>
-              <a class="btn btn-danger">Delete</a>
+              <input type="submit" value="Delete" class="btn btn-danger">
             </form>
           </div>
         </div>

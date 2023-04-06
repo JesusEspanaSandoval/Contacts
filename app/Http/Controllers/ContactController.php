@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
@@ -69,6 +70,10 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        if ($contact['picture'] != '/default.svg') {
+            Storage::delete("public/{$contact['picture']}");
+        }
+        $contact->delete();
+        return redirect('home');
     }
 }
