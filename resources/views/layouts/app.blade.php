@@ -53,6 +53,9 @@
               @endif
             @else
               <li class="nav-item">
+                <a class="nav-link" href="{{ route('contacts.index') }}">All contacts</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ route('contacts.create') }}">Create</a>
               </li>
               <li class="nav-item dropdown">

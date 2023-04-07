@@ -25,7 +25,7 @@
       @endforeach
     </div>
   @else
-    <div class="card mx-auto" style="min-width: 20rem; max-width: 30rem">
+    <div class="card mx-auto" style="min-width: 15rem; max-width: 30rem">
       <div class="d-flex flex-column justify-content-center card-body">
         <h3 class="text-center">You don't have contacts</h3>
         <div class="mx-auto">
