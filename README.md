@@ -9,7 +9,7 @@ pnpm install
 
 ``` bash
 php artisan key:generate
-php artisan sail:install
+sail artisan migrate
 ```
 
 ## Run
