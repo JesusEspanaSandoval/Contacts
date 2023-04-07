@@ -54,15 +54,22 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view('contacts.edit', compact('contact'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Contact $contact)
+    public function update(CreateContactRequest $request, Contact $contact)
     {
-        //
+        $data = $request->validated();
+
+        if ($request->hasFile('picture')) {
+            $data['picture'] = str_replace('public', '', $request->file('picture')->store('public'));
+        }
+
+        $contact->update($data);
+        return redirect('home');
     }
 
     /**

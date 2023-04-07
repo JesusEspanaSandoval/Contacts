@@ -21,9 +21,10 @@ class CreateContactRequest extends FormRequest
      */
     public function rules(): array
     {
+        $phone_number_request = '/^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/';
         return [
             'name' => 'required',
-            'phone_number' => 'required|regex:/^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/',
+            'phone_number' => "required|regex:$phone_number_request",
             'picture' => 'image',
         ];
     }

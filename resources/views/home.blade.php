@@ -17,7 +17,7 @@
               @csrf
               @method('delete')
 
-              <a class="btn btn-primary me-2">Edit</a>
+              <a href="{{ route('contacts.edit', $contact->id) }}" class="btn btn-primary me-2">Edit</a>
               <input type="submit" value="Delete" class="btn btn-danger">
             </form>
           </div>
