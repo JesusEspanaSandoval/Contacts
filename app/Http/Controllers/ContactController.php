@@ -46,6 +46,9 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
+        if ($contact->user_id != auth()->id()) {
+            return redirect('home');
+        }
         return view('contacts.show', compact('contact'));
     }
 
