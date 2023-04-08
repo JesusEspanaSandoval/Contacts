@@ -6,8 +6,10 @@
       @foreach ($contacts as $contact)
         <div
           class="d-flex flex-md-row flex-column align-items-center justify-content-md-between border-top border-bottom border-dark p-2 w-100">
-          <h3 class="my-auto ms-md-4 text-center"><a href="{{ route('contacts.show', $contact->id) }}"
-              class="text-white text-decoration-none">{{ $contact->name }}</a> <br class="d-md-none" />
+          <h3 class="my-auto ms-md-4 text-center">
+            <a href="{{ route('contacts.show', $contact->id) }}" class="text-white text-decoration-none">
+              {{ $contact->name }}</a>
+            <br class="d-md-none" />
             {{ $contact->phone_number }}
           </h3>
           <form class="me-md-4" method="post" action="{{ route('contacts.destroy', $contact->id) }}">
